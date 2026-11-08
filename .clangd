@@ -1,0 +1,14 @@
+CompileFlags:
+  Add:
+    # Tell clang to parse as C++26
+    - "-std=c++26"
+    # Preprocessor trick: erase pre(...) and post (...) in clang's AST pass
+    # TODO: remove this trick when clang supports contracts
+    - "-Dpre(x)="
+    - "-Dpost(x)="
+    - "-Dcontract_assert(x)="
+
+Diagnostics:
+  Includes:
+    IgnoreHeader:
+      - ".*raylib.cpp\\.hpp"
